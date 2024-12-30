@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom GSAP Animation with Unique Sizes</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            overflow: hidden; 
+        }
+
+        .container {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+        }
+
+        /* Desktop - 12 at the very back, now fitting the viewport size */
+        #box1 {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1; /* Very back */
+        }
+
+        /* Moon rising from bottom-center */
+        #box2 {
+            position: absolute;
+            bottom: -400px; /* Initially out of the viewport */
+            left: 50%;
+            height: 350px;
+            width: 350px;
+            transform: translateX(-50%);
+            z-index: 2; /* Above Desktop */
+        }
+
+        #box3, #box4, #box5 {
+            position: absolute;
+            opacity: 0; /* Initially hidden */
+        }
+
+        #box3 {
+            bottom: 50px;
+            right: 0;
+            height: 524px;
+            width: 1400px;
+            z-index: 3; /* Above Moon */
+        }
+
+        #box4 {
+            bottom: 0;
+            left: 0; /* Initially position it on the left */
+            height: 700px;
+            z-index: 4; /* Above Side Tree */
+        }
+
+        #box5 {
+            bottom: 0;
+            right: 0; 
+            z-index: 5; /* Above Left Mountain */
+        }
+
+        .container div img {
+            display: block; /* Remove any extra space below images */
+            object-fit: cover; /* Make the image cover the container while maintaining aspect ratio */
+            width: 100%; /* Stretch to fill the container width */
+            height: 100%; /* Stretch to fill the container height */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="box1"><img src="/Assets/Desktop - 12.svg" alt="Desktop"></div>
+        <div id="box2"><img src="/Assets/Moon.svg" alt="Moon"></div>
+        <div id="box3"><img src="/Assets/BackMountain.svg" alt="Side Tree"></div>
+        <div id="box4"><img src="/Assets/LeftMountain.svg" alt="Left Mountain"></div>
+        <div id="box5"><img src="/Assets/SideTree.svg" alt="Back Mountain"></div> 
+    </div>
+
+    <!-- Include GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const timeline = gsap.timeline();
+
+            // Animate Desktop - 12 (box1): Fade in
+            timeline.fromTo(
+                "#box1",
+                { opacity: 0 },
+                { opacity: 1, duration: 1 }
+            );
+
+            // Animate Moon (box2): Rising from the bottom-center
+            timeline.fromTo(
+                "#box2",
+                { opacity: 0, bottom: "-400px" }, // Start off-screen
+                { opacity: 1, bottom: "300", duration: 2, ease: "power2.out" }
+            );
+
+            // Animate Side Tree (box3): Fade in from the right
+            timeline.fromTo(
+                "#box3",
+                { opacity: 0, x: "100%" }, // Start off-screen (to the right)
+                { opacity: 1, x: "0%", duration: 2.5, delay: 0.8, ease: "power2.out" },
+                "-=1" // Overlap animation by 1 second
+            );
+
+            // Animate Left Mountain (box4): Fade in from the left
+            timeline.fromTo(
+                "#box4",
+                { opacity: 0, x: "-100%" }, // Start off-screen to the left
+                { opacity: 1, x: "0%", duration: 1.5, delay: 1, ease: "power2.out" },
+                "-=1" // Overlap animation by 1 second
+            );
+
+            // Animate Back Mountain (box5): Fade in
+            timeline.fromTo(
+                "#box5",
+                { opacity: 0 },
+                { opacity: 1, duration: 1.5 },
+                "-=1" // Overlap animation by 1 second
+            );
+        });
+    </script>
+</body>
+</html>
