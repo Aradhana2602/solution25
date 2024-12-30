@@ -17,7 +17,7 @@
             height: 100vh;
         }
 
-        /* Desktop - 12 at the very back, now fitting the viewport size */
+        /* Desktop - 12*/
         #box1 {
             position: absolute;
             top: 0;
@@ -27,20 +27,20 @@
             z-index: 1; /* Very back */
         }
 
-        /* Moon rising from bottom-center */
+        /* Moon  */
         #box2 {
             position: absolute;
-            bottom: -400px; /* Initially out of the viewport */
+            bottom: -400px; 
             left: 50%;
             height: 350px;
             width: 350px;
             transform: translateX(-50%);
-            z-index: 2; /* Above Desktop */
+            z-index: 2;
         }
 
         #box3, #box4, #box5 {
             position: absolute;
-            opacity: 0; /* Initially hidden */
+            opacity: 0;
         }
 
         #box3 {
@@ -48,27 +48,27 @@
             right: 0;
             height: 524px;
             width: 1400px;
-            z-index: 3; /* Above Moon */
+            z-index: 3;
         }
 
         #box4 {
             bottom: 0;
-            left: 0; /* Initially position it on the left */
+            left: 0; 
             height: 700px;
-            z-index: 4; /* Above Side Tree */
+            z-index: 4;
         }
 
         #box5 {
             bottom: 0;
             right: 0; 
-            z-index: 5; /* Above Left Mountain */
+            z-index: 5; 
         }
 
         .container div img {
-            display: block; /* Remove any extra space below images */
-            object-fit: cover; /* Make the image cover the container while maintaining aspect ratio */
-            width: 100%; /* Stretch to fill the container width */
-            height: 100%; /* Stretch to fill the container height */
+            display: block; 
+            object-fit: cover; 
+            width: 100%;
+            height: 100%; 
         }
     </style>
 </head>
@@ -163,42 +163,42 @@
         document.addEventListener("DOMContentLoaded", () => {
             const timeline = gsap.timeline();
 
-            // Animate Desktop - 12 (box1): Fade in
+           
             timeline.fromTo(
                 "#box1",
                 { opacity: 0 },
                 { opacity: 1, duration: 1 }
             );
 
-            // Animate Moon
+            // Animate Moon (box2): Rising from the bottom-center
             timeline.fromTo(
                 "#box2",
-                { opacity: 0, bottom: "-400px" },
+                { opacity: 0, bottom: "-400px" }, // Start off-screen
                 { opacity: 1, bottom: "300", duration: 2, ease: "power2.out" }
             );
 
-            // Animate Side Tree 
+            // Animate Side Tree (box3): Fade in from the right
             timeline.fromTo(
                 "#box3",
                 { opacity: 0, x: "100%" }, 
                 { opacity: 1, x: "0%", duration: 2.5, delay: 0.8, ease: "power2.out" },
-                "-=1" // Overlap animation by 1 second
+                "-=1"
             );
 
-            // Animate Left Mountain (box4): Fade in from the left
+           
             timeline.fromTo(
                 "#box4",
-                { opacity: 0, x: "-100%" }, // Start off-screen to the left
+                { opacity: 0, x: "-100%" }
                 { opacity: 1, x: "0%", duration: 1.5, delay: 1, ease: "power2.out" },
-                "-=1" // Overlap animation by 1 second
+                "-=1" 
             );
 
-            // Animate Back Mountain (box5): Fade in
+            // Animate Back Mountain 
             timeline.fromTo(
                 "#box5",
                 { opacity: 0 },
                 { opacity: 1, duration: 1.5 },
-                "-=1" // Overlap animation by 1 second
+                "-=1" 
             );
         });
     </script>
