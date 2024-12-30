@@ -24,7 +24,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            z-index: 1; /* Very back */
+            z-index: 1;
         }
 
         /* Moon  */
@@ -77,29 +77,29 @@
         <!-- --Nav bar--- -->
         <nav class="navbar">
             <img
-              src="images/solutions-icon.svg"
+              src="Assets/logo.svg"
               alt="Solutions logo"
               class="solutions-logo"
             />
       
             <div class="main-navbar">
               <a href="#">
-                <img class="nav_btn_img" src="images/home-icon.svg" alt="home-icon" />
+                <img class="nav_btn_img" src="Assets/home.svg" alt="home-icon" />
               </a>
               <a class="main_navbar_link" href="./events/index.html?eventcat=0"
                 ><img
                   class="nav_btn_img"
-                  src="images/events-icon.svg"
-                  alt="events-icon"
+                  src="Assets/about us.svg"
+                  alt="About-us"
               /></a>
               <a href="./team/index.html"
-                ><img class="nav_btn_img" src="images/team-icon.svg" alt="team-icon"
+                ><img class="nav_btn_img" src="Assets/our team.svg" alt="Our-Team"
               /></a>
               <a href="./schedule/index.html?index=0"
                 ><img
                   class="nav_btn_img"
-                  src="images/schedule-icon.svg"
-                  alt="schedule-icon"
+                  src="Assets/Register.svg"
+                  alt=" register"
               /></a>
             </div>
       
@@ -111,7 +111,7 @@
                       <a href="#"
                         ><img
                           class="nav_btn_img"
-                          src="images/home-icon.svg"
+                          src="Assets/"
                           alt="home-icon"
                       /></a>
                     </li>
@@ -170,14 +170,14 @@
                 { opacity: 1, duration: 1 }
             );
 
-            // Animate Moon (box2): Rising from the bottom-center
+            // Animate Moon
             timeline.fromTo(
                 "#box2",
-                { opacity: 0, bottom: "-400px" }, // Start off-screen
+                { opacity: 0, bottom: "-400px" }, 
                 { opacity: 1, bottom: "300", duration: 2, ease: "power2.out" }
             );
 
-            // Animate Side Tree (box3): Fade in from the right
+            // Animate Side Tree 
             timeline.fromTo(
                 "#box3",
                 { opacity: 0, x: "100%" }, 
