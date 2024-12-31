@@ -1,206 +1,40 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Solution25</title>
-    <style>
-        body, html {
-            margin: 0;
-            padding: 0;
-            overflow: hidden; 
-        }
-
-        .container {
-            position: relative;
-            width: 100vw;
-            height: 100vh;
-        }
-
-        /* Desktop - 12*/
-        #box1 {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 1;
-        }
-
-        /* Moon  */
-        #box2 {
-            position: absolute;
-            bottom: -400px; 
-            left: 50%;
-            height: 350px;
-            width: 350px;
-            transform: translateX(-50%);
-            z-index: 2;
-        }
-
-        #box3, #box4, #box5 {
-            position: absolute;
-            opacity: 0;
-        }
-
-        #box3 {
-            bottom: 50px;
-            right: 0;
-            height: 524px;
-            width: 1400px;
-            z-index: 3;
-        }
-
-        #box4 {
-            bottom: 0;
-            left: 0; 
-            height: 700px;
-            z-index: 4;
-        }
-
-        #box5 {
-            bottom: 0;
-            right: 0; 
-            z-index: 5; 
-        }
-
-        .container div img {
-            display: block; 
-            object-fit: cover; 
-            width: 100%;
-            height: 100%; 
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <img src="Assets/logo.svg" alt="Solutions logo" class="solutions-logo" />
+        <div class="hamburger-button" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="main-navbar">
+            <a href="#"><img class="nav_btn_img" src="Assets/home.svg" alt="home-icon" /></a>
+            <a href="./events/index.html?eventcat=0"><img class="nav_btn_img" src="Assets/about us.svg" alt="About-us" /></a>
+            <a href="./team/index.html"><img class="nav_btn_img" src="Assets/our team.svg" alt="Our-Team" /></a>
+            <a href="./schedule/index.html?index=0"><img class="nav_btn_img" src="Assets/Register.svg" alt="register" /></a>
+        </div>
+    </nav>
 
-        <!-- --Nav bar--- -->
-        <nav class="navbar">
-            <img
-              src="Assets/logo.svg"
-              alt="Solutions logo"
-              class="solutions-logo"
-            />
-      
-            <div class="main-navbar">
-              <a href="#">
-                <img class="nav_btn_img" src="Assets/home.svg" alt="home-icon" />
-              </a>
-              <a class="main_navbar_link" href="./events/index.html?eventcat=0"
-                ><img
-                  class="nav_btn_img"
-                  src="Assets/about us.svg"
-                  alt="About-us"
-              /></a>
-              <a href="./team/index.html"
-                ><img class="nav_btn_img" src="Assets/our team.svg" alt="Our-Team"
-              /></a>
-              <a href="./schedule/index.html?index=0"
-                ><img
-                  class="nav_btn_img"
-                  src="Assets/Register.svg"
-                  alt=" register"
-              /></a>
-            </div>
-      
-            <div class="hamburger-button" id="hamburger">
-              <div class="sidemenu">
-                <div class="menu">
-                  <ul class="contact-us_content list">
-                    <li class="contact-us_list-item ham">
-                      <a href="#"
-                        ><img
-                          class="nav_btn_img"
-                          src="Assets/"
-                          alt="home-icon"
-                      /></a>
-                    </li>
-                    <li class="contact-us_list-item ham">
-                      <a href="./events/index.html?eventcat=0"
-                        ><img
-                          class="nav_btn_img"
-                          src="images/events-icon.svg"
-                          alt="events-icon"
-                      /></a>
-                    </li>
-                    <li class="contact-us_list-item ham">
-                      <a href="./team/index.html"
-                        ><img
-                          class="nav_btn_img"
-                          src="images/team-icon.svg"
-                          alt="team-icon"
-                      /></a>
-                    </li>
-                    <li class="contact-us_list-item ham">
-                      <a href="./schedule/index.html?index=0"
-                        ><img
-                          class="nav_btn_img"
-                          src="images/schedule-icon.svg"
-                          alt="schedule-icon"
-                      /></a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </nav>
-          <!-- --Nav bar end-- -->
-
-
-          <!-- Landing Page Start -->
+    <!-- Landing Page -->
     <div class="container">
-        <div id="box1"><img src="/Assets/Desktop - 12.svg" alt="Desktop"></div>
-        <div id="box2"><img src="/Assets/Moon.svg" alt="Moon"></div>
-        <div id="box3"><img src="/Assets/BackMountain.svg" alt="Side Tree"></div>
-        <div id="box4"><img src="/Assets/LeftMountain.svg" alt="Left Mountain"></div>
-        <div id="box5"><img src="/Assets/SideTree.svg" alt="Back Mountain"></div> 
+        <div id="box1"><img src="Assets/Desktop - 12.svg" alt="Desktop"></div>
+        <div id="box2"><img src="Assets/Moon.svg" alt="Moon"></div>
+        <div id="box3"><img src="Assets/BackMountain.svg" alt="Back Mountain"></div>
+        <div id="box4"><img src="Assets/LeftMountain.svg" alt="Left Mountain"></div>
+        <div id="box5"><img src="Assets/SideTree.svg" alt="Side Tree"></div>
     </div>
-            <!-- Landing Page End -->
 
-            <!-- Include GSAP -->
+    <!-- GSAP -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const timeline = gsap.timeline();
-
-           
-            timeline.fromTo(
-                "#box1",
-                { opacity: 0 },
-                { opacity: 1, duration: 1 }
-            );
-
-            // Animate Moon
-            timeline.fromTo(
-                "#box2",
-                { opacity: 0, bottom: "-400px" }, 
-                { opacity: 1, bottom: "300", duration: 2, ease: "power2.out" }
-            );
-
-            // Animate Side Tree 
-            timeline.fromTo(
-                "#box3",
-                { opacity: 0, x: "100%" }, 
-                { opacity: 1, x: "0%", duration: 2.5, delay: 0.8, ease: "power2.out" },
-                "-=1"
-            );
-
-           
-            timeline.fromTo(
-                "#box4",
-                { opacity: 0, x: "-100%" }
-                { opacity: 1, x: "0%", duration: 1.5, delay: 1, ease: "power2.out" },
-                "-=1" 
-            );
-
-            // Animate Back Mountain 
-            timeline.fromTo(
-                "#box5",
-                { opacity: 0 },
-                { opacity: 1, duration: 1.5 },
-                "-=1" 
-            );
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
