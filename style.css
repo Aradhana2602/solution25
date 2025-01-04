@@ -1,12 +1,14 @@
 body, html {
+  overflow-x: hidden;
   margin: 0;
   padding: 0;
+  font-family: 'Poppins', sans-serif;
   
 }
 
 /* Navbar */
 .navbar {
-  position: fixed;
+  /* position: fixed; */
   width: 100%;
   top: 0;
   display: flex;
@@ -14,6 +16,7 @@ body, html {
   align-items: center;
   padding: 1rem 3vw;
   background:  #F5AE22 ;
+  /* backdrop-filter: blur(15px); */
   z-index: 99;
 }
 
@@ -48,12 +51,12 @@ body, html {
   }
 }
 
-/* Landing Page */
+
 .container {
   position: relative;
   width: 100vw;
   height: 100vh;
-  margin-top: 6.5rem;
+  /* margin-top: 6.5rem; */
   
 }
 
@@ -106,3 +109,140 @@ body, html {
   right: 0;
   z-index: 5;
 }
+
+
+
+#about-us{
+  height: 280vh;
+  width: 100vw;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  color: white;
+}
+#about-us img{
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; 
+}
+
+#about-us h1{
+  font-size: 5rem;
+  margin-top: 10vh;
+  margin-bottom: 5vh;
+  text-align: center;
+}
+
+#about-us .letter{
+  height: 100vh;
+  width: 95%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  margin-top: 8vh;
+  margin-left: 8vw;
+  background-size: cover;
+  background-position: center;
+}
+#about-us .letter img{
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; 
+}
+
+
+
+#about-us .left{
+  color: black;
+  padding:0vh 0vw 10vh 21vw;
+  text-align: justify;
+  line-height: 1.4;
+}
+
+#about-us .right{
+  padding: 0 21vw 8vh 5vw;
+} 
+
+
+
+#sponsors-page {
+  height: 125vh;
+  width: 100vw;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  color: white;
+}
+
+#sponsors-page img{
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; 
+  background-image: linear-gradient(#6b190b,#A65d29);
+}
+
+#sponsors-page h1{
+  font-size: 5rem;
+  margin-top: 10vh;
+  margin-bottom: 5vh;
+  padding-right: 4vw;
+  text-align: center;
+}
+
+.sponsors {
+  margin-top: 12%;
+  height: 80%;
+  width: 80%;
+  display: grid;
+  grid-template-rows: auto auto; 
+  grid-template-columns: 1fr;
+  gap: 20px;
+  text-align: center;
+  padding: 20px;
+}
+
+.img1 {
+  grid-column: 1 / -1;
+}
+
+.row-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr; 
+  gap: 20px; 
+}
+
+.sponsor-name {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#sponsors-page .sponsor-name img {
+  height: 180px;
+  width: 400px;
+  padding-left: 40%;
+  background-image: none;
+}
+
