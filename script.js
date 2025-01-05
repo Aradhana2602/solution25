@@ -1,3 +1,7 @@
+if (performance.navigation.type === performance.navigation.TYPE_RELOAD) {
+    window.location.href = "index.html"; 
+}
+
 document.addEventListener("DOMContentLoaded", () => {
     const timeline = gsap.timeline();
 

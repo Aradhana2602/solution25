@@ -1,66 +1,61 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Solution25</title>
-    <link rel="stylesheet" href="style.css">
+    <style>
+
+        body {
+            background-color: black;
+            display: flex;
+            justify-content: center; 
+            align-items: center; 
+            height: 100vh;
+            margin: 0; 
+            overflow: hidden; 
+        }
+
+        #loader {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .tb {
+            position: absolute;
+            height: 270px;
+            width: 270px;
+            animation: spinner 2s linear infinite;
+        }
+
+        .tb2 {
+            position: absolute;
+            height: 130px;
+            width: 130px;
+        }
+
+        @keyframes spinner {
+            to {
+                transform: rotate(-360deg);
+            }
+        }
+    </style>
 </head>
 <body>
-    <!-- Navbar -->
-    <nav class="navbar">
-        <img src="Assets/logo.svg" alt="Solutions logo" class="solutions-logo" />
-        <div class="hamburger-button" onclick="toggleMenu()">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-        <div class="main-navbar">
-            <a href="#"><img class="nav_btn_img" src="Assets/home.svg" alt="home-icon" /></a>
-            <a href="./events/index.html?eventcat=0"><img class="nav_btn_img" src="Assets/about us.svg" alt="About-us" /></a>
-            <a href="./team/index.html"><img class="nav_btn_img" src="Assets/our team.svg" alt="Our-Team" /></a>
-            <a href="./schedule/index.html?index=0"><img class="nav_btn_img" src="Assets/Register.svg" alt="register" /></a>
-        </div>
-    </nav>
-
-    <!-- Landing Page -->
-    <div class="container">
-        <div id="box1"><img src="Assets/Desktop - 12.svg" alt="Desktop"></div>
-        <div id="box2"><img src="Assets/Moon.svg" alt="Moon"></div>
-        <div id="box3"><img src="Assets/BackMountain.svg" alt="Back Mountain"></div>
-        <div id="box4"><img src="Assets/LeftMountain.svg" alt="Left Mountain"></div>
-        <div id="box5"><img src="Assets/SideTree.svg" alt="Side Tree"></div>
+    <div id="loader">
+        <img class="tb" src="Assets/drago3.svg" alt="Outer Box">
+        <img class="tb2" src="Assets/tb2.svg" alt="Inner Box">
     </div>
-    <section id="about-us">
-        <img src="Assets/Background.svg" alt="">
-        <h1>ABOUT US</h1>
-        <div class="letter">
-            <img src="Assets/letter.svg" alt="">
-            <div class="left">Behold the extravaganza of jolliness ! Army Institute of Technology brings you the gala of its annual tech fest "Solutions" to celebrate the glory of talent and insight. With more than 20 events under the belt , Solutions provides an environment of competition with ecstasy and style. With 7 successful editions in its list, Solutions is back with rip-roaring events to transcend the norm. </div>
-            <div class="right"><iframe width="465" height="300" src="https://www.youtube.com/embed/C1-PPNx2IKs?si=fpOO2GusezTicBKO" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
-        </div>
-    </section>
-    <section id="sponsors-page">
-        <img src="Assets/sponsers.PNg" alt="">
-        <h1>SPONSORS</h1>
-        <div class="sponsors">
-            <div class="img1 sponsor-name">
-              <img src="Assets/sponsor-name.svg" alt="Sponsor 1">
-            </div>
-            <div class="row-2">
-              <div class="img2 sponsor-name">
-                <img src="Assets/sponsor-name.svg" alt="Sponsor 2">
-              </div>
-              <div class="img3 sponsor-name">
-                <img src="Assets/sponsor-name.svg" alt="Sponsor 3">
-              </div>
-            </div>
-          </div>          
-    </section>
-
-    <!-- GSAP -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="script.js"></script>
+    <script>
+        if (performance.navigation.type === performance.navigation.TYPE_RELOAD) {
+            window.location.href = "index.html";
+        } else {
+            setTimeout(function() {
+                window.location.href = "main.html";
+            }, 3000);
+        }
+    </script>
 </body>
 </html>
